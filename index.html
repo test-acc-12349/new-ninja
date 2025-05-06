@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO: Descriptive Title -->
-    <title>Online Ninja - 10X Your Traffic With Ninja SEO</title>
+    <title>Online Ninja - 10X Your Traffic With Ninja SEO & Tools</title>
     <!-- SEO: Meta Description -->
-    <meta name="description" content="Transform your online presence with Ninja SEO. Get 10X organic traffic, 3X conversion rates, and 5-star reviews through expert mentoring and strategy sessions. Build without hiring!">
+    <meta name="description" content="Transform your online presence with Ninja SEO. Get 10X organic traffic, 3X conversion rates, and 5-star reviews through expert mentoring, strategy sessions, and useful tools like our online calculator. Build without hiring!">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥷</text></svg>">
@@ -16,6 +16,23 @@
         /* Optional: Add a subtle transition for color changes */
         body, header, section, footer, div, a, p, h1, h2, h3, h4 {
             transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Calculator specific styles (can be achieved with Tailwind too, but sometimes custom is cleaner for complex components) */
+        .calculator-grid button {
+            @apply p-4 text-xl font-semibold border border-gray-300 rounded-lg hover:bg-gray-200 active:bg-gray-300 transition-colors;
+        }
+        .calculator-grid .operator {
+            @apply bg-purple-100 text-purple-700 hover:bg-purple-200;
+        }
+        .calculator-grid .equals {
+            @apply bg-purple-500 text-white hover:bg-purple-600 col-span-2; /* Make equals button wider */
+        }
+         .calculator-grid .clear {
+            @apply bg-red-100 text-red-700 hover:bg-red-200;
+        }
+        #calculatorDisplay {
+            @apply w-full bg-gray-100 border border-gray-300 text-gray-800 text-3xl text-right p-4 rounded-lg mb-4;
+            font-family: 'Courier New', Courier, monospace; /* Monospaced font for calculator display */
         }
     </style>
 </head>
@@ -40,6 +57,7 @@
                     <a href="#testimonials" class="text-gray-600 hover:text-purple-600 hover:scale-105 transition-all duration-300">Testimonials</a>
                     <a href="#about" class="text-gray-600 hover:text-purple-600 hover:scale-105 transition-all duration-300">About</a>
                     <a href="#build" class="text-gray-600 hover:text-purple-600 hover:scale-105 transition-all duration-300">Build</a>
+                    <a href="#calculator-section" class="text-gray-600 hover:text-purple-600 hover:scale-105 transition-all duration-300">Calculator</a>
                     <a href="#faq" class="text-gray-600 hover:text-purple-600 hover:scale-105 transition-all duration-300">FAQ</a>
                 </div>
                 <button class="mobile-menu-button md:hidden text-gray-800" aria-label="Toggle mobile menu">
@@ -56,6 +74,7 @@
                 <a href="#testimonials" class="block py-2 text-gray-700 hover:text-purple-600">Testimonials</a>
                 <a href="#about" class="block py-2 text-gray-700 hover:text-purple-600">About</a>
                 <a href="#build" class="block py-2 text-gray-700 hover:text-purple-600">Build</a>
+                <a href="#calculator-section" class="block py-2 text-gray-700 hover:text-purple-600">Calculator</a>
                 <a href="#faq" class="block py-2 text-gray-700 hover:text-purple-600">FAQ</a>
                 <a href="https://ninja200.online" class="block py-2 text-white bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-center mt-2">Get Started</a>
             </div>
@@ -64,11 +83,8 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-blue-50 to-gray-50 overflow-hidden pt-20">
-        <!-- Optional: Light background pattern/image -->
-        <!-- <div class="absolute inset-0 bg-[url('light-pattern.svg')] opacity-20"></div> -->
         <div class="container mx-auto px-6 py-24 relative z-10">
             <div class="text-center max-w-4xl mx-auto">
-                <!-- SEO: H1 Heading -->
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text animate-pulse">
                     10X Your Traffic With Ninja SEO 🥷
                 </h1>
@@ -90,14 +106,12 @@
     <!-- Features Section -->
     <section id="features" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <!-- SEO: H2 Heading -->
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Master SEO With Expert Support</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 hover:scale-105 hover:shadow-xl transition-all duration-300">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 text-white rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-laptop-code text-2xl"></i>
                     </div>
-                    <!-- SEO: H3 Heading -->
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Comprehensive Online Learning</h3>
                     <p class="text-gray-600">Access our extensive library of SEO courses, tutorials, and resources. Learn at your own pace with step-by-step guidance and practical exercises.</p>
                 </div>
@@ -105,7 +119,6 @@
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 text-white rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-users text-2xl"></i>
                     </div>
-                     <!-- SEO: H3 Heading -->
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Personalized 1-on-1 Mentoring</h3>
                     <p class="text-gray-600">Get direct guidance from industry experts with proven track records. Regular coaching sessions tailored to your specific needs and goals.</p>
                 </div>
@@ -113,7 +126,6 @@
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 text-white rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-chart-line text-2xl"></i>
                     </div>
-                     <!-- SEO: H3 Heading -->
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Strategic Growth Planning</h3>
                     <p class="text-gray-600">Monthly strategy sessions to analyze performance, adjust tactics, and stay ahead of industry trends. Data-driven decisions for maximum impact.</p>
                 </div>
@@ -124,24 +136,20 @@
     <!-- Benefits Section -->
     <section id="benefits" class="py-24 bg-gray-100">
         <div class="container mx-auto px-6">
-             <!-- SEO: H2 Heading -->
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Proven Results That Speak Volumes</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center hover:scale-105 transition-all duration-300">
                     <div class="text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text mb-4">10X</div>
-                     <!-- SEO: H3 Heading -->
                     <h3 class="text-xl font-bold mb-2 text-gray-900">Organic Traffic Growth</h3>
                     <p class="text-gray-600">Experience exponential growth in qualified organic traffic through our proven SEO strategies and content optimization techniques.</p>
                 </div>
                 <div class="text-center hover:scale-105 transition-all duration-300">
                     <div class="text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text mb-4">3X</div>
-                     <!-- SEO: H3 Heading -->
                     <h3 class="text-xl font-bold mb-2 text-gray-900">Higher Conversion Rates</h3>
                     <p class="text-gray-600">Triple your conversion rates with targeted traffic and optimized user experience strategies that turn visitors into customers.</p>
                 </div>
                 <div class="text-center hover:scale-105 transition-all duration-300">
                     <div class="text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text mb-4">5★</div>
-                     <!-- SEO: H3 Heading -->
                     <h3 class="text-xl font-bold mb-2 text-gray-900">Client Satisfaction</h3>
                     <p class="text-gray-600">Join our community of satisfied clients who consistently rate our services 5 stars for delivering exceptional results.</p>
                 </div>
@@ -152,7 +160,6 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-             <!-- SEO: H2 Heading -->
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">What Our Clients Say</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 hover:scale-105 transition-all duration-300 hover:shadow-lg">
@@ -194,7 +201,6 @@
     <!-- About Us Section -->
     <section id="about" class="py-24 bg-gray-100">
         <div class="container mx-auto px-6">
-             <!-- SEO: H2 Heading -->
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">About Online Ninja</h2>
             <div class="max-w-3xl mx-auto space-y-6">
                 <p class="text-gray-700 leading-relaxed text-lg">
@@ -210,10 +216,8 @@
     <!-- Build Without Hiring Section -->
     <section id="build" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-             <!-- SEO: H2 Heading -->
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Build Without Hiring</h2>
             <div class="max-w-3xl mx-auto space-y-6">
-                 <!-- SEO: Placeholder text, use meaningful paragraphs -->
                 <p class="text-gray-700 leading-relaxed text-lg">
                     Ready to boost your online presence but not ready to hire a full-time SEO expert or agency? Online Ninja empowers you to take control. Our platform provides comprehensive learning resources, intuitive tools, and step-by-step guidance designed for business owners and marketers who want to implement effective SEO strategies themselves.
                 </p>
@@ -224,34 +228,62 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 bg-gray-100">
+    <!-- Calculator Section -->
+    <section id="calculator-section" class="py-24 bg-gray-100">
         <div class="container mx-auto px-6">
-            <!-- SEO: H2 Heading -->
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Quick Calculator</h2>
+            <div class="max-w-sm mx-auto bg-white p-6 rounded-xl shadow-xl border border-gray-200">
+                <input type="text" id="calculatorDisplay" readonly value="0">
+                <div class="grid grid-cols-4 gap-2 calculator-grid">
+                    <button onclick="clearDisplay()" class="clear col-span-2">AC</button>
+                    <button onclick="deleteLast()" class="operator">DEL</button>
+                    <button onclick="appendOperator('/')" class="operator">÷</button>
+
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="appendOperator('*')" class="operator">×</button>
+
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('-')" class="operator">−</button>
+
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendOperator('+')" class="operator">+</button>
+
+                    <button onclick="appendNumber('0')" class="col-span-2">0</button>
+                    <button onclick="appendDecimal()">.</button>
+                    <button onclick="calculateResult()" class="equals">=</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-white"> <!-- Changed bg to white for alternation -->
+        <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Frequently Asked Questions</h2>
             <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
-                    <!-- SEO: H3 Heading -->
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
                     <h3 class="text-xl font-bold mb-4 text-gray-900">How long does it take to see results?</h3>
                     <p class="text-gray-600">Most clients see initial improvements within 3-6 months, with significant results typically showing after 6-12 months of consistent implementation. Results vary based on your starting point, industry competition, and commitment to the program.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
-                     <!-- SEO: H3 Heading -->
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Do I need technical experience?</h3>
                     <p class="text-gray-600">No technical experience is required. Our program is designed to guide you from the basics to advanced techniques, with step-by-step instructions and ongoing support to ensure your success.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
-                     <!-- SEO: H3 Heading -->
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
                     <h3 class="text-xl font-bold mb-4 text-gray-900">What support is included?</h3>
                     <p class="text-gray-600">Your membership includes unlimited access to our online course library, monthly 1-on-1 mentoring sessions (optional upgrade), weekly group Q&A calls, and our private community forum.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
-                     <!-- SEO: H3 Heading -->
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Can I cancel my subscription?</h3>
                     <p class="text-gray-600">Yes, you can cancel your subscription at any time with no questions asked. We offer a 30-day money-back guarantee for new members to ensure you're completely satisfied.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
-                     <!-- SEO: H3 Heading -->
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:scale-102 transition-all duration-300 hover:shadow-md">
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Is this suitable for my industry?</h3>
                     <p class="text-gray-600">Our strategies have been successfully implemented across diverse industries, from e-commerce to professional services. We'll help you adapt our proven frameworks to your specific niche.</p>
                 </div>
@@ -261,10 +293,7 @@
 
     <!-- CTA Section -->
     <section class="py-24 bg-gradient-to-br from-purple-100 via-blue-100 to-gray-100 relative overflow-hidden">
-        <!-- Optional light overlay pattern -->
-        <!-- <div class="absolute inset-0 bg-[url('light-dots.svg')] opacity-10"></div> -->
         <div class="container mx-auto px-6 text-center relative z-10">
-            <!-- SEO: H2 Heading -->
             <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900">Ready to Become an SEO Ninja?</h2>
             <p class="text-xl text-gray-700 mb-12 max-w-2xl mx-auto">Join our community of successful digital marketers and transform your online presence today. Start your journey to SEO mastery!</p>
             <a href="https://ninja200.online" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-medium text-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
@@ -278,12 +307,10 @@
         <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div>
-                     <!-- SEO: H3 Heading -->
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Online Ninja</h3>
                     <p class="text-gray-600">Transform your online presence with expert SEO strategies and personalized mentoring.</p>
                 </div>
                 <div>
-                     <!-- SEO: H4 Heading (acceptable for footer sections) -->
                     <h4 class="text-lg font-semibold mb-4 text-gray-800">Quick Links</h4>
                     <ul class="space-y-2 text-gray-600">
                         <li><a href="#features" class="hover:text-purple-600 hover:translate-x-1 transition-all duration-300 inline-block">Features</a></li>
@@ -291,17 +318,15 @@
                         <li><a href="#testimonials" class="hover:text-purple-600 hover:translate-x-1 transition-all duration-300 inline-block">Testimonials</a></li>
                         <li><a href="#about" class="hover:text-purple-600 hover:translate-x-1 transition-all duration-300 inline-block">About</a></li>
                         <li><a href="#build" class="hover:text-purple-600 hover:translate-x-1 transition-all duration-300 inline-block">Build</a></li>
+                        <li><a href="#calculator-section" class="hover:text-purple-600 hover:translate-x-1 transition-all duration-300 inline-block">Calculator</a></li>
                         <li><a href="#faq" class="hover:text-purple-600 hover:translate-x-1 transition-all duration-300 inline-block">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
-                     <!-- SEO: H4 Heading -->
                     <h4 class="text-lg font-semibold mb-4 text-gray-800">Contact</h4>
                     <p class="text-gray-600 hover:text-purple-600 transition-colors duration-300">admin@ninja200.online</p>
-                    <!-- Add social media icons here if desired -->
                 </div>
                 <div>
-                     <!-- SEO: H4 Heading -->
                     <h4 class="text-lg font-semibold mb-4 text-gray-800">Legal</h4>
                     <ul class="space-y-2 text-gray-600">
                         <li><a href="https://test-acc-12349.github.io/online-ninja-demo/privacy.html" class="hover:text-purple-600 hover:translate-x-1 transition-all duration-300 inline-block">Privacy Policy</a></li>
@@ -327,20 +352,17 @@
                     mobileMenu.classList.toggle('hidden');
                     const icon = mobileMenuButton.querySelector('i');
                     if (icon) {
-                        // Toggle between bars and times icons
                         icon.classList.toggle('fa-bars');
                         icon.classList.toggle('fa-times');
                     }
                 });
 
-                // Close mobile menu when a link is clicked
                 const mobileMenuLinks = mobileMenu.querySelectorAll('a');
                 mobileMenuLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.add('hidden');
                         const icon = mobileMenuButton.querySelector('i');
                         if (icon) {
-                            // Ensure icon resets to bars
                             icon.classList.remove('fa-times');
                             icon.classList.add('fa-bars');
                         }
@@ -348,6 +370,116 @@
                 });
             }
         });
+
+        // Calculator Logic
+        const display = document.getElementById('calculatorDisplay');
+        let currentInput = '0';
+        let operator = null;
+        let previousInput = null;
+        let shouldResetDisplay = false;
+
+        function updateDisplay() {
+            display.value = currentInput;
+        }
+
+        function clearDisplay() {
+            currentInput = '0';
+            operator = null;
+            previousInput = null;
+            shouldResetDisplay = false;
+            updateDisplay();
+        }
+
+        function deleteLast() {
+            if (currentInput.length > 1) {
+                currentInput = currentInput.slice(0, -1);
+            } else {
+                currentInput = '0';
+            }
+            updateDisplay();
+        }
+
+        function appendNumber(number) {
+            if (currentInput === '0' || shouldResetDisplay) {
+                currentInput = number;
+                shouldResetDisplay = false;
+            } else {
+                currentInput += number;
+            }
+            updateDisplay();
+        }
+
+        function appendDecimal() {
+            if (shouldResetDisplay) {
+                currentInput = '0.';
+                shouldResetDisplay = false;
+            } else if (!currentInput.includes('.')) {
+                currentInput += '.';
+            }
+            updateDisplay();
+        }
+
+        function appendOperator(op) {
+            if (operator && !shouldResetDisplay) { // If an operator is already set and we haven't just calculated
+                calculateResult(); // Calculate intermediate result
+            }
+            previousInput = currentInput;
+            operator = op;
+            shouldResetDisplay = true;
+        }
+
+        function calculateResult() {
+            if (!operator || previousInput === null) return;
+
+            let result;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+
+            if (isNaN(prev) || isNaN(current)) {
+                currentInput = 'Error';
+                updateDisplay();
+                resetCalculatorStateAfterError();
+                return;
+            }
+
+            switch (operator) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    if (current === 0) {
+                        currentInput = 'Error';
+                        updateDisplay();
+                        resetCalculatorStateAfterError();
+                        return;
+                    }
+                    result = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            currentInput = String(result);
+            operator = null;
+            previousInput = null;
+            shouldResetDisplay = true; // Allow new number entry after equals
+            updateDisplay();
+        }
+        
+        function resetCalculatorStateAfterError() {
+            operator = null;
+            previousInput = null;
+            shouldResetDisplay = true; // So next number clears "Error"
+        }
+
+        // Initialize display
+        updateDisplay();
+
     </script>
 
 </body>
